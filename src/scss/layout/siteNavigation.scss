@@ -1,0 +1,544 @@
+.SiteNavigation {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3.125rem);
+  width: 20rem;
+  z-index: 9;
+  top: 3.125rem;
+  left: 0;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid rgba(153, 153, 153, 0.3);
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease;
+  will-change: transform;
+  svg {
+    vertical-align: top;
+  }
+  position: fixed;
+  transform: translateX(-100%);
+}
+
+.SiteNavigation.open {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.NavEl {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0%);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 0.5rem;
+}
+
+.NavigationItemsContainer {
+  overflow: auto;
+}
+
+.PrimaryNavigation {
+  margin: 0;
+  padding-left: 0;
+  padding-bottom: 0.9375rem;
+}
+
+.PopularLinks {
+  width: 50%;
+  padding: 0 0 0.1875rem 0.75rem;
+  margin-top: -0.1875rem;
+  > ul,
+  > ul li {
+    list-style-type: none;
+  }
+  > ul {
+    padding-left: 0;
+  }
+  span {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+.SiteNavHref {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: Larsseit-Regular;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+
+  &:hover {
+    svg {
+      g path {
+        fill: rgb(194, 56, 63);
+      }
+    }
+  }
+}
+
+.SelectedSiteNavHref {
+  font-family: Larsseit-Bold !important;
+  color: rgb(194, 56, 63) !important;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0.5rem;
+    background-color: rgb(36, 211, 206);
+  }
+}
+
+.PrimarySiteNavHref {
+  height: 100%;
+  padding: 0.1875rem 0rem 0rem 1.25rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.01125rem;
+  text-transform: uppercase;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0.3125rem;
+    right: 0;
+    height: 1.375rem;
+    width: 0.0625rem;
+    background-color: rgb(217, 217, 217);
+  }
+
+  &:hover {
+    background-color: rgb(245, 245, 245);
+    color: rgb(194, 56, 63);
+    font-family: Larsseit-Medium;
+
+    &:after {
+      top: 0rem;
+      height: 2rem;
+    }
+  }
+}
+
+.SecondarySiteNavHref {
+  height: 2.625rem;
+  padding: 0.0625rem 1.25rem 0rem 2.5625rem !important;
+  margin-bottom: 0.4375rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.01125rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: rgb(245, 245, 245);
+    color: rgb(194, 56, 63);
+  }
+}
+
+.PopularSiteNavHref {
+  height: 1.75rem;
+  padding: 0 0 0 0.75rem;
+  margin: 0.3125rem 0;
+  font-family: Larsseit-Light;
+  font-size: 0.875rem;
+  color: rgb(102, 102, 102);
+
+  &:hover {
+    background-color: rgb(245, 245, 245);
+    color: rgb(194, 56, 63);
+    font-family: Larsseit-Regular;
+  }
+}
+.SelectedPopularSiteNavHref {
+  &:before {
+    content: none;
+  }
+}
+
+.SelectedPaneSiteNavHref {
+  font-family: Larsseit-Medium !important;
+}
+
+.SVGSiteNavHref {
+  svg {
+    position: absolute;
+    left: 0.6875rem;
+    top: 0.25rem;
+    height: 2rem;
+    width: 2rem;
+
+    g path {
+      display: block;
+
+      &:nth-of-type(1) {
+        display: none;
+      }
+    }
+  }
+}
+
+.SelectedSVGSiteNavHref {
+  svg g path {
+    &:nth-of-type(1) {
+      display: block;
+    }
+    &:nth-of-type(2) {
+      display: none;
+    }
+  }
+}
+
+.SecondaryNavigation {
+  width: 50%;
+  padding: 1.125rem 0 0.75rem;
+  border-top: 1px solid rgb(217, 217, 217);
+  visibility: visible;
+  opacity: 1;
+}
+
+.PrimaryNavTopLevelListItemWrap {
+  width: 100%;
+  list-style-type: none;
+
+  .Pane {
+    visibility: hidden;
+    opacity: 0;
+    a {
+      width: 100%;
+    }
+  }
+}
+.PrimaryNavTopLevelListItem {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 36px;
+  grid-template-columns: 1fr 36px;
+  align-items: center;
+  width: 50%;
+  height: 2rem;
+  padding: 0rem;
+  margin: 0.625rem 0;
+
+  button {
+    height: 100%;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      svg {
+        rect {
+          fill: rgb(255, 110, 110);
+          transform: scale(1);
+        }
+        path {
+          stroke: rgb(255, 255, 255);
+        }
+      }
+    }
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+
+      rect {
+        fill: rgb(255, 255, 255);
+        transform-origin: center center;
+        transform: scale(0.5);
+        transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      path {
+        stroke: rgb(255, 110, 110);
+      }
+    }
+  }
+}
+
+.Pane {
+  width: 50%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 0.9375rem;
+
+  transform: translateX(100%);
+
+  button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    color: rgb(0, 122, 119);
+    text-transform: uppercase;
+    font-family: Larsseit-Medium;
+    font-size: 0.75rem;
+    letter-spacing: 0.015625rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    svg {
+      position: relative;
+      top: -0.0625rem;
+      left: 0.4375rem;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  ul,
+  ul > li {
+    list-style-type: none;
+  }
+
+  ul {
+    border-bottom: 1px solid rgb(217, 217, 217);
+    padding: 0 0 0.6875rem;
+    margin: 0;
+
+    &.bp__offset_ul {
+      padding-top: 0.75rem;
+    }
+
+    a {
+      display: block;
+      padding: 0.3125rem 1.25rem;
+      font-family: Larsseit-Light;
+      font-size: 0.875rem;
+      letter-spacing: 0rem;
+      text-transform: none;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    padding: 0.3125rem 1.25rem;
+    margin-top: 0.75rem;
+    font-family: Larsseit-Medium;
+    font-size: 0.75rem;
+    letter-spacing: 0.010625rem;
+    text-transform: uppercase;
+    color: #999999;
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.125rem;
+      font-family: Larsseit-Bold;
+      text-transform: uppercase;
+      color: rgb(194, 56, 63);
+    }
+  }
+
+  .bp__secondary_navigation {
+    width: 100%;
+    border-top: none;
+
+    a {
+      display: flex;
+      align-items: center;
+      height: 2.625rem;
+      padding: 0.0625rem 1.25rem 0.4375rem 2.5625rem;
+      font-family: Larsseit-Regular;
+      font-size: 0.8125rem;
+      letter-spacing: 0.01125rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.TBSearchForm {
+  width: 20rem;
+  z-index: 10;
+  padding: 1.25rem 1.5rem;
+  margin-left: 0;
+  display: block;
+
+  &.search__navigation {
+    display: block;
+    width: 50%;
+    padding: 1.25rem 1.5rem;
+  }
+
+  label {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 0.4rem;
+      left: 0.375rem;
+      height: 1.1875rem;
+      width: 1.1875rem;
+
+      path {
+        fill: rgb(255, 110, 110);
+      }
+    }
+
+    input {
+      position: relative;
+      height: 2rem;
+      width: 16.5rem;
+      padding: 0.125rem 0rem 0rem 1.75rem;
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      border: 1px solid transparent;
+      -webkit-appearance: none;
+      border-bottom: 1px solid rgb(217, 217, 217);
+      font-size: 1rem;
+      font-family: Larsseit-Light;
+    }
+  }
+}
+.DownloadAppPromo {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: rgb(248, 238, 226);
+  position: relative;
+  z-index: 10;
+
+  div {
+    margin: 1.25rem;
+    display: flex;
+    position: relative;
+      margin-bottom: 1.25rem;
+
+    img {
+      width: 3.25rem;
+      height: 6.625rem;
+      margin-right: 1.25rem;
+    }
+
+    div {
+      margin: 0;
+      flex-direction: column;
+      position: relative;
+      padding-bottom: 0;
+      flex-direction: column;
+
+      p {
+        font-family: Larsseit-Light;
+        font-size: 0.75rem;
+        color: rgb(102, 102, 102);
+        width: 100%;
+        margin: 0;
+
+        span {
+          display: block;
+          margin-top: 0rem;
+          margin-right: 0.25rem;
+          font-family: Larsseit-Bold;
+          font-size: 0.75rem;
+          color: rgb(194, 56, 63);
+          text-transform: uppercase;
+          left: initial;
+          bottom: initial;
+          
+        }
+      }
+
+      span {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        left: 0;
+        bottom: 0;
+        margin-top: 0.9375rem;
+
+        a {
+          margin-right: 0.3125rem;
+          &:nth-of-type(1) {
+            width: 100%;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2.5rem;
+            background-color: rgb(0, 122, 119);
+            color: rgb(255, 255, 255);
+            font-family: Larsseit-Bold;
+            font-size: 0.875rem;
+            letter-spacing: 0.03125rem;
+            text-transform: uppercase;
+          }
+
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            display: none;
+          }
+          &:last-of-type {
+            margin-right: 0;
+          }
+
+          img {
+            width: 5.25rem;
+            height: 1.5625rem;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.SocialLinks {
+  display: flex;
+
+  &.social_links__navigation {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 1.3125rem;
+    padding-bottom: 1.3125rem;
+    padding-left: 0.875rem;
+    border-top: 1px solid rgb(217, 217, 217);
+    display: flex;
+  }
+
+  a {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.5rem;
+    margin-right: 0.125rem;
+
+    svg {
+      pointer-events: none;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

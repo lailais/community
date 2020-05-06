@@ -1,0 +1,9 @@
+{
+    "name": "@vanilla/the-bump",
+    "version": "3.0.1",
+    "private": true,
+    "dependencies": {
+        "@vanilla/theme-core": "^3.0.1",
+        "moment": "^2.24.0"
+    }
+}

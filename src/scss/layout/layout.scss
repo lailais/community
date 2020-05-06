@@ -1,0 +1,40 @@
+.Frame-body {
+  margin: 3.125rem auto 0;
+  max-width: 1280px
+}
+
+.background {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  z-index: 8;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  will-change: transform;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.45s ease 0s;
+}
+
+.background.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media(min-width: 768px) {
+  .background {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1366px) and (orientation: portrait) {
+  .background {
+    display: block;
+  }
+}
+
+

@@ -1,0 +1,99 @@
+@import "./vars.scss";
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+   * 1. Set default font family to sans-serif.
+   * 2. Prevent iOS text size adjust after orientation change, without disabling
+   *    user zoom.
+   */
+
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+body {
+  margin: 0;
+  font-family: helvetica neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+b,
+strong,
+.bold {
+  font-family: Larsseit-Bold;
+}
+
+i,
+em,
+.italic {
+  font-family: Larsseit-LightItalic;
+}
+
+.bold-italic,
+em strong,
+em b,
+strong em,
+b em {
+  font-family: Larsseit-BoldItalic;
+}
+
+img {
+  vertical-align: middle;
+}
+
+ul {
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+a {
+  color: $cta-teal;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+    color: $hover-teal;
+    img {
+      opacity: .9;
+    }
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  cursor: pointer;
+}
+
+button,input,optgroup,select,textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0
+}
+
+

@@ -1,0 +1,141 @@
+.footer {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1.625rem 1.25rem;
+  background-color: rgb(246, 246, 246);
+  
+  div {
+    &:nth-of-type(3) {
+      section {
+        width: 100%;
+      }
+    }
+  }
+
+  div {
+    justify-content: flex-start;
+    display: flex !important;
+
+    svg {
+      path {
+        fill: rgb(109, 109, 109);
+
+      }
+    }
+  }
+
+  @media(min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 1366px) and (orientation: portrait) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.FooterColumn {
+  display: flex;
+
+  &:nth-of-type(3) {
+    flex-direction: column;
+  }
+
+  section {
+    width: 50%;
+    padding-right: 0.625rem;
+
+    ul {
+      margin-bottom: 1.623rem;
+
+      li {
+        a {
+          display: flex;
+          margin-bottom: 0.4375rem;
+          align-content: center;
+          font-family: Larsseit-Light;
+          font-size: 0.75rem;
+          letter-spacing: 0rem;
+          color: rgb(0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+.title {
+  display: block;
+  font-family: Larsseit-Bold;
+  font-size: 0.75rem;
+  letter-spacing: 0.010625rem;
+  text-transform: uppercase;
+  color: rgb(194, 56, 63);
+  margin-bottom: 0.5625rem;
+}
+
+.title.followUs {
+  margin-bottom: 0rem;
+  margin-top: 1.25rem;
+}
+
+.SitesWrap svg {
+  &:nth-of-type(1) {
+    width: 3.375rem;
+    height: 1rem;
+    margin-right: 1.25rem;
+  }
+}
+
+
+.AppDownloadsWrap {
+  a {
+    margin-right: 0.3125rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    img {
+      width: 6.4375rem;
+      height: 1.9375rem;
+      margin-right: 0px;
+    }
+  }
+}
+
+.SocialLinks {
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  display: flex;
+
+  @media(min-width: 768px) {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    border-right: 1px solid rgb(229, 229, 229);
+  }
+
+  a {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.125rem;
+    padding: 0.5rem;
+
+    svg {
+      pointer-events: none;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.Copyright {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: Larsseit-Light;
+  font-size: 0.75rem;
+  letter-spacing: 0.010625rem;
+  color: rgb(153, 153, 153);
+}
