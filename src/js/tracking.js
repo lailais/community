@@ -1,8 +1,6 @@
 
 /* Context */
 // import { useBlueprintContext } from '../context/BlueprintContext';
-const deviceType = 'test deviceType'
-const requestUrl = 'test requestUrl'
 
 const getLoginUserStage = member => {
   if (!member) { return null }
@@ -23,10 +21,8 @@ const getLoginUserStage = member => {
 
 export const createTrackingData = (member) => {
   return {
-    platform: deviceType,
     email: member && member.email,
     stage: getLoginUserStage(member),
-    currentURL: requestUrl
   }
 }
 

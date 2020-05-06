@@ -6,6 +6,7 @@
 
 import "../../../theme-boilerplate/src/js/index";
 
+import './utils'
 import "./header";
 import "./footer";
 import './siteNav';

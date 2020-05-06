@@ -1,8 +1,7 @@
 import config from '../config.js'
 
   const host = config.apiBase
-  // const authQuery = `apikey=${isMobile ? config.apiMobileKey : config.apiKey}`
-  const authQuery = `apikey=${config.apiKey}`
+  const authQuery = `apikey=${$.isMobile ? config.apiMobileKey : config.apiKey}`
 
   const execute = ({ path, callback = () => {}, ...config }) => {
     let s = '?'

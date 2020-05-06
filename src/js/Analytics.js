@@ -1,7 +1,4 @@
 const omit = _.omit
-const isApp = false
-const device = 'desktop'
-
 
   function getData (str) {
     try {
@@ -11,10 +8,6 @@ const device = 'desktop'
     }
   }
 
-  function currentPlatform () {
-    return device + ' web'
-  }
-
   function trackEvent (options) {
     if (typeof window.analytics === 'undefined' || window.analytics === null ||
       !options) { return }
@@ -22,8 +15,9 @@ const device = 'desktop'
     options = omit(options, 'event')
     const params = Object.assign({}, {
       product: 'bump',
-      platform: currentPlatform(),
-      appBrowserView: isApp
+      platform: $.deviceType,
+      appBrowserView: $.isInApp,
+      currentURL: $.requestUrl
     }, options)
     return window.analytics.track(event, params)
   }
