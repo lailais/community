@@ -6,9 +6,10 @@
 
 import "../../../theme-boilerplate/src/js/index";
 
-import './utils'
+import "./utils";
+import "./member";
 import "./header";
 import "./footer";
-import './siteNav';
-import './ScriptLoader/SegmentIo';
-import './Analytics'
+import "./siteNav";
+import "./ScriptLoader/SegmentIo";
+import "./Analytics";
