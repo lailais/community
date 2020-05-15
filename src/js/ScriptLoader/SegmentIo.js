@@ -1,9 +1,9 @@
-import config from '../config'
+import config from "../config";
 
 export const SegmentIo = () => {
-  const head = document.getElementsByTagName('head')[0]
-  const script = document.createElement('script')
-  script.innerHTML = `
+    const head = document.getElementsByTagName("head")[0];
+    const script = document.createElement("script");
+    script.innerHTML = `
   (function(){
     // Create a queue, but don't obliterate an existing one!
     var analytics = window.analytics = window.analytics || [];
@@ -89,15 +89,12 @@ export const SegmentIo = () => {
     // Load Analytics.js with your key, which will automatically
     // load the tools you've enabled for your account. Boosh!
     analytics.load("${config.writeKey}");
-  })();`
-  head.appendChild(script)
-}
+  })();`;
+    head.appendChild(script);
+};
 
-if (
-  document.readyState === "complete" ||
-  (document.readyState !== "loading" && !document.documentElement.doScroll)
-) {
-  SegmentIo();
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+    SegmentIo();
 } else {
-document.addEventListener("DOMContentLoaded", SegmentIo);
+    document.addEventListener("DOMContentLoaded", SegmentIo);
 }

@@ -1,10 +1,13 @@
+.SiteNavigationWrapper {
+  position: relative;
+}
 .SiteNavigation {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 3.125rem);
+  height: calc(100vh - 3.125rem);
   width: 20rem;
   z-index: 9;
-  top: 3.125rem;
+  top: 25px;
   left: 0;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
@@ -15,13 +18,19 @@
   svg {
     vertical-align: top;
   }
-  position: fixed;
+  position: absolute;
   transform: translateX(-100%);
 }
 
 .SiteNavigation.open {
   opacity: 1;
   transform: translateX(0%);
+}
+
+@media only screen and (max-width: 1366px) and (orientation: portrait) {
+  .SiteNavigation.open {
+    top: 25px;
+  }
 }
 
 .NavEl {

@@ -6,7 +6,7 @@
  * @license GPL-2.0-only
  */
 
-namespace Vanilla\Themes\Keystone;
+namespace Vanilla\Themes\Thebump;
 
 use Vanilla\Dashboard\Models\BannerImageModel;
 use Vanilla\Web\TwigFormWrapper;
